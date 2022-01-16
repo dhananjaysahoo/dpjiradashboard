@@ -13,6 +13,7 @@ import json
 from datetime import datetime, date, timedelta
 import datetime, calendar
 from collections import OrderedDict
+from pytz import timezone
 import time
 
 import os
@@ -598,6 +599,8 @@ def save_dp_data(days,components,totals,status,project):
     month_component = list(all_components.values())
     month_status = list(all_status.values())
 
+    ind_time = datetime.datetime.now(timezone("Asia/Kolkata")).strftime('%Y-%m-%d %H:%M:%S.%f')
+
     try:
         if project == 'DP':
             jira = DP.objects.get(id=1)
@@ -675,7 +678,7 @@ def save_dp_data(days,components,totals,status,project):
         jira.ReadyforTesting = month_status[7]
         jira.ReadyforProduction = month_status[8]
         jira.ToDo = month_status[9]
-        jira.LastUpdate = datetime.datetime.now()
+        jira.LastUpdate = ind_time
 
         jira.save()
     except:

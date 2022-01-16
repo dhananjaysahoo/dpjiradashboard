@@ -193,7 +193,7 @@ const ctxtwo = document.getElementById('externaljira').getContext('2d');
 const dpexternaljira = new Chart(ctxtwo, {
     type: 'bar',
     data: {
-        labels: ['01','02','03','04','05','06','07','08','09','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31'],
+        labels: [{% for key in reversetotalsKeys %}'{{key}}',{% endfor %}],
         datasets: [{
             label: '#',
             data: [{% for jira in reversetotalsValues %}{{jira}},{% endfor %}],
@@ -268,13 +268,21 @@ const dpexternaljira = new Chart(ctxtwo, {
         }]
     },
      options: {
-     plugins: {
-            datalabels: {
-                  formatter: function(value, context) {
-                  return context.chart.data.datasets[0].data[context.dataIndex];
-                }
-            }
-          },
+      responsive: true,
+      scales: {
+                xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                        }
+                    }],
+                yAxes: [{
+                        display: true,
+                        ticks: {
+                            beginAtZero: true,
+                        }
+                    }]
+            },
       legend: { display: false },
 
       title: {
