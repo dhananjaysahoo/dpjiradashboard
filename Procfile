@@ -1,1 +1,1 @@
-web: gunicorn board.wsgi --noreload
+web: gunicorn board.wsgi
