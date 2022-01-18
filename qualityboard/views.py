@@ -600,6 +600,7 @@ def save_dp_data(days,components,totals,status,project):
     month_status = list(all_status.values())
 
     ind_time = datetime.datetime.now(timezone("Asia/Kolkata")).strftime('%Y-%m-%d %H:%M:%S.%f')
+    print("Log Jira data to database at {}".format(ind_time))
 
     try:
         if project == 'DP':
