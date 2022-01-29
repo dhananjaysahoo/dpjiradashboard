@@ -699,7 +699,6 @@ def save_jira_data():
     username = env('DJANGO_JIRA_USER')
     token = env('DJANGO_JIRA_TOKEN')
 
-
     internal_dp_labels = []
     int_components, int_totals, int_status, int_error_flag = get_dp_data("DP",days[0], days[-1], username, token, next_date,internal_dp_labels,url)
     save_dp_data(days,int_components,int_totals,int_status,'DP')
