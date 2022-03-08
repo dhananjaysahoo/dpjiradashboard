@@ -134,7 +134,7 @@ SOCIALACCOUNT_PROVIDERS = {
 }
 SOCIALACCOUNT_QUERY_EMAIL=True
 SOCIALACCOUNT_EMAIL_REQUIRED=True
-ACCOUNT_ADAPTER = 'qualityboard.account_adapter.NoNewUsersAccountAdapter'
+#ACCOUNT_ADAPTER = 'qualityboard.account_adapter.NoNewUsersAccountAdapter'
 ACCOUNT_LOGIN_ATTEMPTS_LIMIT=5
 ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT=600
 #ACCOUNT_FORMS = {'login': 'qualityboard.form.EDALearningsForm'}
