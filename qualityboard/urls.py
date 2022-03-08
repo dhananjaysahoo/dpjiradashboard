@@ -13,4 +13,5 @@ urlpatterns = [
     path('eda', views.eda,name="eda"),
     path('login',views.login_view,name='login'),
     path('logout',views.logout_view,name='logout'),
+
 ]

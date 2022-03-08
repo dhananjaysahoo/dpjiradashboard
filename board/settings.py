@@ -26,6 +26,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'qualityboard',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
 ]
 
 MIDDLEWARE = [
@@ -55,6 +60,11 @@ TEMPLATES = [
         },
     },
 ]
+
+AUTHENTICATION_BACKENDS=[
+                  'django.contrib.auth.backends.ModelBackend',
+                  'allauth.account.auth_backends.AuthenticationBackend',
+                  ]
 
 WSGI_APPLICATION = 'board.wsgi.application'
 
@@ -107,6 +117,28 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
+
+SITE_ID = 1
+LOGIN_REDIRECT_URL = '/'
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+                  'profile',
+                  'email',
+              ],
+          'AUTH_PARAMS': {
+              'access_type': 'offline',
+        }
+    }
+}
+SOCIALACCOUNT_QUERY_EMAIL=True
+SOCIALACCOUNT_EMAIL_REQUIRED=True
+ACCOUNT_ADAPTER = 'qualityboard.account_adapter.NoNewUsersAccountAdapter'
+ACCOUNT_LOGIN_ATTEMPTS_LIMIT=5
+ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT=600
+#ACCOUNT_FORMS = {'login': 'qualityboard.form.EDALearningsForm'}
+#SOCIALACCOUNT_ADAPTER = 'qualityboard.account_adapter.CustomSocialAccountAdapter'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

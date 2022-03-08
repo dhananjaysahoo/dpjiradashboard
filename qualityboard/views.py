@@ -6,6 +6,8 @@ from django.contrib import messages
 from requests.auth import HTTPBasicAuth
 from .models import DP, DPExternal, DPM, DPMExternal, ImpactAreas, ImpactApplications, EDACurrentMonth, EDAPreviousMonth, EDALearnings
 from .form import DPForm, DPExternalForm, DPM, DPMExternal,MOB,MOBExternal,ImpactAreaForm, ImpactApplicationForm, EDAPreviousMonthForm, EDACurrentMonthForm, EDALearningsForm
+
+
 import sys
 from operator import itemgetter
 import requests
@@ -31,6 +33,13 @@ def index(request):
 
     if not request.user.is_authenticated:
         return HttpResponseRedirect(reverse('qualityboard:login'))
+
+    elif ('dialpad.com' not in request.user.email):
+        print("Not A Dialpad User:", request.user)
+        logout(request)
+        return render(request, 'login.html', {
+            "message": "Invalid User Permission !!!"
+        })
 
     else:
         dp = DP.objects.get(id=1)
@@ -96,7 +105,9 @@ def index(request):
             "totaldpdailyjira": sum(totaldpdailyjira),
             "totaldpexternaldailyjira": sum(totaldpexternaldailyjira),
             })
-    
+
+
+
 def dpm(request):
 
     if not request.user.is_authenticated:
@@ -423,6 +434,7 @@ def custom(request):
                         "externaltop5statuskeys": list(externaltop5status.keys()),
                         "externaltop5statusvalues": list(externaltop5status.values()),
                         "project": project,
+                        "messages": "",
                     })
             message = "No Jira Data Available. Please check the presets !!!"
             return render(request, 'custom.html', {
@@ -430,6 +442,7 @@ def custom(request):
             })
 
     return render(request, 'custom.html', {
+        "messages": "",
             })
 
 
@@ -698,7 +711,7 @@ def save_jira_data():
     url = 'https://switchcomm.atlassian.net/rest/api/2/search'
     username = env('DJANGO_JIRA_USER')
     token = env('DJANGO_JIRA_TOKEN')
-
+    #print("Get Data from Jira")
     internal_dp_labels = []
     int_components, int_totals, int_status, int_error_flag = get_dp_data("DP",days[0], days[-1], username, token, next_date,internal_dp_labels,url)
     save_dp_data(days,int_components,int_totals,int_status,'DP')
