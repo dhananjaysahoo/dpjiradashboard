@@ -301,6 +301,7 @@ def logout_view(request):
     })
 
 
+
 def get_custom_data(start_date,end_date,project,username,token,url):
     components = {}
     totals = {}
@@ -405,7 +406,7 @@ def custom(request):
                 start_date = str(year)+"-"+str(month)+"-"+"01"
                 end_date = days[-1] + timedelta(days=1)
 
-                url = 'https://switchcomm.atlassian.net/rest/api/2/search'
+                url = 'https://dialpad.atlassian.net/rest/api/2/search'
                 username = env('DJANGO_JIRA_USER')
                 token = env('DJANGO_JIRA_TOKEN')
 
@@ -708,7 +709,7 @@ def save_jira_data():
     num_days = calendar.monthrange(year, month)[1]
     days = [datetime.date(year, month, day) for day in range(1, num_days + 1)]
     next_date = days[-1] + timedelta(days=1)
-    url = 'https://switchcomm.atlassian.net/rest/api/2/search'
+    url = 'https://dialpad.atlassian.net/rest/api/2/search'
     username = env('DJANGO_JIRA_USER')
     token = env('DJANGO_JIRA_TOKEN')
     #print("Get Data from Jira")
