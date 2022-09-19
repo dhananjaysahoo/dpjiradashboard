@@ -12,5 +12,5 @@ def start():
         scheduler = BackgroundScheduler()
         #jira = views()
         #scheduler.add_job(views.save_jira_data,"interval",minutes=60,id="jira_001",replace_existing=True)
-        scheduler.add_job(views.get_product_health_metrics, "interval", minutes=10, id="jira_001", replace_existing=True)
+        scheduler.add_job(views.get_product_health_metrics, "interval", minutes=30, id="jira_001", replace_existing=True)
         scheduler.start()
