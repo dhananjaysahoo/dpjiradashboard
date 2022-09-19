@@ -530,3 +530,121 @@ class EDALearnings(models.Model):
 
     def __str__(self):
         return f"{self.id}: {self.ActionItem} {self.PreviousMonth} {self.CurrentMonth}"
+
+
+class CFD(models.Model):
+    CFDtotalJiras = models.CharField(max_length=150, blank=True)
+    CFDtotalFixed = models.CharField(max_length=150, blank=True)
+    CFDtotalMRT = models.CharField(max_length=150, blank=True)
+    CFDtotalNotClosed = models.CharField(max_length=150, blank=True)
+    CFDtotalCurrentFix = models.CharField(max_length=150, blank=True)
+    CFDtotalNoise = models.CharField(max_length=150, blank=True)
+    CFDtotalPriorityH = models.CharField(max_length=150, blank=True)
+    CFDtotalPriorityM = models.CharField(max_length=150, blank=True)
+    CFDtotalPriorityL = models.CharField(max_length=150, blank=True)
+    CFDtotalPriorityU = models.CharField(max_length=150, blank=True)
+    CFDtalkJiras = models.CharField(max_length=150, blank=True)
+    CFDtalkFixed = models.CharField(max_length=150, blank=True)
+    CFDtalkMRT = models.CharField(max_length=150, blank=True)
+    CFDtalkNotClosed = models.CharField(max_length=150, blank=True)
+    CFDtalkCurrentFix = models.CharField(max_length=150, blank=True)
+    CFDtalkNoise = models.CharField(max_length=150, blank=True)
+    CFDtalkPriorityH = models.CharField(max_length=150, blank=True)
+    CFDtalkPriorityM = models.CharField(max_length=150, blank=True)
+    CFDtalkPriorityL = models.CharField(max_length=150, blank=True)
+    CFDtalkPriorityU = models.CharField(max_length=150, blank=True)
+    CFDCCJiras = models.CharField(max_length=150, blank=True)
+    CFDCCFixed = models.CharField(max_length=150, blank=True)
+    CFDCCMRT = models.CharField(max_length=150, blank=True)
+    CFDCCNotClosed = models.CharField(max_length=150, blank=True)
+    CFDCCCurrentFix = models.CharField(max_length=150, blank=True)
+    CFDCCNoise = models.CharField(max_length=150, blank=True)
+    CFDCCPriorityH = models.CharField(max_length=150, blank=True)
+    CFDCCPriorityM = models.CharField(max_length=150, blank=True)
+    CFDCCPriorityL = models.CharField(max_length=150, blank=True)
+    CFDCCPriorityU = models.CharField(max_length=150, blank=True)
+    CFDINTJiras = models.CharField(max_length=150, blank=True)
+    CFDINTFixed = models.CharField(max_length=150, blank=True)
+    CFDINTMRT = models.CharField(max_length=150, blank=True)
+    CFDINTNotClosed = models.CharField(max_length=150, blank=True)
+    CFDINTCurrentFix = models.CharField(max_length=150, blank=True)
+    CFDINTNoise = models.CharField(max_length=150, blank=True)
+    CFDLastUpdate = models.CharField(max_length=60, blank=True)
+    CFDINTPriorityH = models.CharField(max_length=150, blank=True)
+    CFDINTPriorityM = models.CharField(max_length=150, blank=True)
+    CFDINTPriorityL = models.CharField(max_length=150, blank=True)
+    CFDINTPriorityU = models.CharField(max_length=150, blank=True)
+
+    def __str__(self):
+        return f"{self.id}: {self.CFDtotalJiras} {self.CFDtotalFixed} {self.CFDtotalMRT} {self.CFDtotalNotClosed} {self.CFDtotalCurrentFix} {self.CFDtotalNoise} {self.CFDtotalPriorityH} {self.CFDtotalPriorityM} {self.CFDtotalPriorityL} {self.CFDtotalPriorityU}\
+               {self.CFDtalkJiras} {self.CFDtalkFixed} {self.CFDtalkMRT} {self.CFDtalkNotClosed} {self.CFDtalkCurrentFix} {self.CFDtalkNoise} {self.CFDtalkPriorityH} {self.CFDtalkPriorityM} {self.CFDtalkPriorityL} {self.CFDtalkPriorityU}\
+               {self.CFDCCJiras} {self.CFDCCFixed} {self.CFDCCMRT} {self.CFDCCNotClosed} {self.CFDCCCurrentFix} {self.CFDCCNoise} {self.CFDCCPriorityH} {self.CFDCCPriorityM} {self.CFDCCPriorityL} {self.CFDCCPriorityU}\
+               {self.CFDINTJiras} {self.CFDINTFixed} {self.CFDINTMRT} {self.CFDINTNotClosed} {self.CFDINTCurrentFix} {self.CFDINTNoise} {self.CFDINTPriorityH} {self.CFDINTPriorityM} {self.CFDINTPriorityL} {self.CFDINTPriorityU} {self.CFDLastUpdate}"
+
+
+class IFD(models.Model):
+    IFDtotalJiras = models.CharField(max_length=150, blank=True)
+    IFDtotalFixed = models.CharField(max_length=150, blank=True)
+    IFDtotalMRT = models.CharField(max_length=150, blank=True)
+    IFDtotalNotClosed = models.CharField(max_length=150, blank=True)
+    IFDtotalCurrentFix = models.CharField(max_length=150, blank=True)
+    IFDtotalNoise = models.CharField(max_length=150, blank=True)
+    IFDtalkJiras = models.CharField(max_length=150, blank=True)
+    IFDtalkFixed = models.CharField(max_length=150, blank=True)
+    IFDtalkMRT = models.CharField(max_length=150, blank=True)
+    IFDtalkNotClosed = models.CharField(max_length=150, blank=True)
+    IFDtalkCurrentFix = models.CharField(max_length=150, blank=True)
+    IFDtalkNoise = models.CharField(max_length=150, blank=True)
+    IFDCCJiras = models.CharField(max_length=150, blank=True)
+    IFDCCFixed = models.CharField(max_length=150, blank=True)
+    IFDCCMRT = models.CharField(max_length=150, blank=True)
+    IFDCCNotClosed = models.CharField(max_length=150, blank=True)
+    IFDCCCurrentFix = models.CharField(max_length=150, blank=True)
+    IFDCCNoise = models.CharField(max_length=150, blank=True)
+    IFDINTJiras = models.CharField(max_length=150, blank=True)
+    IFDINTFixed = models.CharField(max_length=150, blank=True)
+    IFDINTMRT = models.CharField(max_length=150, blank=True)
+    IFDINTNotClosed = models.CharField(max_length=150, blank=True)
+    IFDINTCurrentFix = models.CharField(max_length=150, blank=True)
+    IFDINTNoise = models.CharField(max_length=150, blank=True)
+    IFDLastUpdate = models.CharField(max_length=60, blank=True)
+
+    def __str__(self):
+        return f"{self.id}: {self.IFDtotalJiras} {self.IFDtotalFixed} {self.IFDtotalMRT} {self.IFDtotalNotClosed} {self.IFDtotalCurrentFix} {self.IFDtotalNoise} \
+               {self.IFDtalkJiras} {self.IFDtalkFixed} {self.IFDtalkMRT} {self.IFDtalkNotClosed} {self.IFDtalkCurrentFix} {self.IFDtalkNoise} \
+               {self.IFDCCJiras} {self.IFDCCFixed} {self.IFDCCMRT} {self.IFDCCNotClosed} {self.IFDCCCurrentFix} {self.IFDCCNoise} \
+               {self.IFDINTJiras} {self.IFDINTFixed} {self.IFDINTMRT} {self.IFDINTNotClosed} {self.IFDINTCurrentFix} {self.IFDINTNoise} {self.IFDLastUpdate}"
+
+
+class CFDDPM(models.Model):
+    DPMCFDtotalJiras = models.CharField(max_length=150, blank=True)
+    DPMCFDtotalFixed = models.CharField(max_length=150, blank=True)
+    DPMCFDtotalMRT = models.CharField(max_length=150, blank=True)
+    DPMCFDtotalNotClosed = models.CharField(max_length=150, blank=True)
+    DPMCFDtotalCurrentFix = models.CharField(max_length=150, blank=True)
+    DPMCFDtotalNoise = models.CharField(max_length=150, blank=True)
+    DPMCFDtotalPriorityH = models.CharField(max_length=150, blank=True)
+    DPMCFDtotalPriorityM = models.CharField(max_length=150, blank=True)
+    DPMCFDtotalPriorityL = models.CharField(max_length=150, blank=True)
+    DPMCFDtotalPriorityU = models.CharField(max_length=150, blank=True)
+    DPMCFDLastUpdate = models.CharField(max_length=60, blank=True)
+
+    def __str__(self):
+        return f"{self.id}: {self.DPMCFDtotalJiras} {self.DPMCFDtotalFixed} {self.DPMCFDtotalMRT} {self.DPMCFDtotalNotClosed} {self.DPMCFDtotalCurrentFix} {self.DPMCFDtotalNoise} {self.DPMCFDtotalPriorityH} {self.DPMCFDtotalPriorityM} {self.DPMCFDtotalPriorityL} {self.DPMCFDtotalPriorityU} {self.DPMCFDLastUpdate}"
+
+
+class CFDMOB(models.Model):
+    MOBCFDtotalJiras = models.CharField(max_length=150, blank=True)
+    MOBCFDtotalFixed = models.CharField(max_length=150, blank=True)
+    MOBCFDtotalMRT = models.CharField(max_length=150, blank=True)
+    MOBCFDtotalNotClosed = models.CharField(max_length=150, blank=True)
+    MOBCFDtotalCurrentFix = models.CharField(max_length=150, blank=True)
+    MOBCFDtotalNoise = models.CharField(max_length=150, blank=True)
+    MOBCFDtotalPriorityH = models.CharField(max_length=150, blank=True)
+    MOBCFDtotalPriorityM = models.CharField(max_length=150, blank=True)
+    MOBCFDtotalPriorityL = models.CharField(max_length=150, blank=True)
+    MOBCFDtotalPriorityU = models.CharField(max_length=150, blank=True)
+    MOBCFDLastUpdate = models.CharField(max_length=60, blank=True)
+
+    def __str__(self):
+        return f"{self.id}: {self.MOBCFDtotalJiras} {self.MOBCFDtotalFixed} {self.MOBCFDtotalMRT} {self.MOBCFDtotalNotClosed} {self.MOBCFDtotalCurrentFix} {self.MOBCFDtotalNoise} {self.MOBCFDtotalPriorityH} {self.MOBCFDtotalPriorityM} {self.MOBCFDtotalPriorityL} {self.MOBCFDtotalPriorityU} {self.MOBCFDLastUpdate}"

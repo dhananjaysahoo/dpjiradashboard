@@ -3,6 +3,7 @@ from allauth.socialaccount.adapter import DefaultSocialAccountAdapter
 from django.shortcuts import render,redirect
 from django.http import HttpResponseRedirect
 
+
 class NoNewUsersAccountAdapter(DefaultAccountAdapter):
 
     def is_open_for_signup(self, request):

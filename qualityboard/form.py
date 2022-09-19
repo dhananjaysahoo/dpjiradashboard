@@ -1,5 +1,5 @@
 from django import forms
-from .models import DP,DPExternal,DPM,DPMExternal,MOB,MOBExternal,ImpactAreas,ImpactApplications,EDACurrentMonth,EDAPreviousMonth,EDALearnings
+from .models import DP,DPExternal,DPM,DPMExternal,MOB,MOBExternal,ImpactAreas,ImpactApplications,EDACurrentMonth,EDAPreviousMonth,EDALearnings,CFD,IFD
 
 class DPForm(forms.ModelForm):
     class Meta:
@@ -103,3 +103,19 @@ class EDALearningsForm(forms.ModelForm):
     class Meta:
         model: EDALearnings
         fields: ['ActionItem','PreviousMonth','CurrentMonth']
+
+class CFDForm(forms.ModelForm):
+    class Meta:
+        model: CFD
+        fields: ['CFDtotalJiras','CFDtotalFixed','CFDtotalMRT','CFDtotalNotClosed','CFDtotalCurrentFix','CFDtotalNoise',\
+                 'CFDtalkJiras','CFDtalkFixed','CFDtalkMRT','CFDtalkNotClosed','CFDtalkCurrentFix','CFDtalkNoise',\
+                 'CFDCCJiras','CFDCCFixed','CFDCCMRT','CFDCCNotClosed','CFDCCCurrentFix','CFDCCNoise',\
+                 'CFDINTJiras','CFDINTFixed','CFDINTMRT','CFDINTNotClosed','CFDINTCurrentFix','CFDINTNoise','CFDLastUpdate']
+
+class IFDForm(forms.ModelForm):
+    class Meta:
+        model: IFD
+        fields: ['IFDtotalJiras','IFDtotalFixed','IFDtotalMRT','IFDtotalNotClosed','IFDtotalCurrentFix','IFDtotalNoise',\
+                 'IFDtalkJiras','IFDtalkFixed','IFDtalkMRT','IFDtalkNotClosed','IFDtalkCurrentFix','IFDtalkNoise',\
+                 'IFDCCJiras','IFDCCFixed','IFDCCMRT','IFDCCNotClosed','IFDCCCurrentFix','IFDCCNoise',\
+                 'IFDINTJiras','IFDINTFixed','IFDINTMRT','IFDINTNotClosed','IFDINTCurrentFix','IFDINTNoise','IFDLastUpdate']
