@@ -1826,17 +1826,18 @@ def process_jira_data(jira_filter_data, duration):
         totalPriorityM.append(totalPriorityM_v)
         totalPriorityU.append(totalPriorityU_v)
 
-        talkJiras_v = data[(data.Component == "Dialpad Talk")].count()[0]
-        talkFixed_v = data[(data.Component == "Dialpad Talk") & ((data.Resolution == "Fixed") | (data.Resolution == "Done") | (data.Resolution == "Ready for Production"))].count()[0]
-        talkMRT_v = data[(data.Component == "Dialpad Talk") & ((data.Resolution == "Fixed") | (data.Resolution == "Done") | (data.Resolution == "Ready for Production"))]["Delta"].mean()
-        talkNotClosed_v = data[(data.Component == "Dialpad Talk") & (data['Resolution'] == "")].count()[0]
-        talkBLMRT_v = data[(data.Component == "Dialpad Talk") & (data['Resolution'] == "")]["Delta"].mean()
-        talkCurrentfix_v = data[(data.Component == "Dialpad Talk") & ((data['createdMonth'] == str(i[1])) & (data['resolutionMonth'] == str(i[1]))) & ((data.Resolution == "Fixed") | (data.Resolution == "Done") | (data.Resolution == "Ready for Production"))].count()[0]
+        #talkJiras_v = data[(data.Component == "Dialpad Talk")].count()[0]
+        talkJiras_v = data[(data.Component == "Core UX")].count()[0]
+        talkFixed_v = data[(data.Component == "Core UX") & ((data.Resolution == "Fixed") | (data.Resolution == "Done") | (data.Resolution == "Ready for Production"))].count()[0]
+        talkMRT_v = data[(data.Component == "Core UX") & ((data.Resolution == "Fixed") | (data.Resolution == "Done") | (data.Resolution == "Ready for Production"))]["Delta"].mean()
+        talkNotClosed_v = data[(data.Component == "Core UX") & (data['Resolution'] == "")].count()[0]
+        talkBLMRT_v = data[(data.Component == "Core UX") & (data['Resolution'] == "")]["Delta"].mean()
+        talkCurrentfix_v = data[(data.Component == "Core UX") & ((data['createdMonth'] == str(i[1])) & (data['resolutionMonth'] == str(i[1]))) & ((data.Resolution == "Fixed") | (data.Resolution == "Done") | (data.Resolution == "Ready for Production"))].count()[0]
         talkNoise_v = talkJiras_v - talkFixed_v - talkNotClosed_v
-        talkPriorityH_v = data[(data.Component == "Dialpad Talk") & (data['Priority'] == "High")].count()[0]
-        talkPriorityM_v = data[(data.Component == "Dialpad Talk") & (data['Priority'] == "Medium")].count()[0]
-        talkPriorityL_v = data[(data.Component == "Dialpad Talk") & (data['Priority'] == "Low")].count()[0]
-        talkPriorityU_v = data[(data.Component == "Dialpad Talk") & (data['Priority'] == "Urgent")].count()[0]
+        talkPriorityH_v = data[(data.Component == "Core UX") & (data['Priority'] == "High")].count()[0]
+        talkPriorityM_v = data[(data.Component == "Core UX") & (data['Priority'] == "Medium")].count()[0]
+        talkPriorityL_v = data[(data.Component == "Core UX") & (data['Priority'] == "Low")].count()[0]
+        talkPriorityU_v = data[(data.Component == "Core UX") & (data['Priority'] == "Urgent")].count()[0]
         talkJiras.append(talkJiras_v)
         talkFixed.append(talkFixed_v)
         talkMRT.append(talkMRT_v)
